@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Калькулятор обміну валют</h1>
+
+    <form method="post" action="{% url 'exchange_result' %}">
+        {% csrf_token %}
+
+        <label for="from_currency" class="form-label">Обміняти з:</label>
+        <select name="from_currency" class="form-select" required>
+            {% for currency, rate in best_rates.items %}
+                <option value="{{ currency }}">{{ currency }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="amount" class="form-label">Сума:</label>
+        <input type="number" name="amount" class="form-control" required>
+
+        <button type="submit" class="btn btn-primary">Підрахувати</button>
+    </form>
+{% endblock %}
