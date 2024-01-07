@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "exchange",
     "django_celery_results",
+    "bootstrap5",
 ]
 
 MIDDLEWARE = [
